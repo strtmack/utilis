@@ -5,3 +5,4 @@
 - isWithinRange: check whether a value is within a min and max range
 - lerp: linear interpolation
 - random: return a random integer within a range
+- slugify: convert input text to normalized, lowercase, hyphenated string

@@ -32,6 +32,18 @@ const random = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const Utilis = { clamp, distance, isWithinRange, lerp, random };
+// Convert input text to Unicode normalized, lowercase, hyphenated string (borrowed from studio freight)
+const slugify = (text) => {
+    return text
+    .toString() // Cast to string
+    .normalize('NFKD') // Normalize by decomposing characters into their Unicode compatibility forms
+    .toLowerCase() // Convert to lowercase
+    .trim() // Remove whitespace from both sides of a string
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+}
+
+const Utilis = { clamp, distance, isWithinRange, lerp, random, slugify };
 
 export default Utilis;
